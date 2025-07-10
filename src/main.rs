@@ -2,7 +2,8 @@ use bevy::prelude::*;
 
 fn main() {
     App::new()
-        .add_plugins(DefaultPlugins)
+        .add_plugins(DefaultPlugins.set(ImagePlugin::default_nearest())) // Set nearest filtering for images
+        .insert_resource(ClearColor(Color::BLACK)) // set background color to black
         .add_systems(Startup, setup)
         .run();
 }
